@@ -110,7 +110,7 @@ def get_list_of_match_ids(route, puuid, api_key, start=0, count=20, end_time=Non
     Start index.
 
   count: int, optional
-    Number of match ids to return. Valid values: 0 to 100. 
+    Number of match ids to return. Valid values: 0 to 100.
 
   end_time: int, optional
     The UNIX timestamp in seconds for the end of time range.
@@ -133,7 +133,7 @@ def get_list_of_match_ids(route, puuid, api_key, start=0, count=20, end_time=Non
     f"&endTime={end_time or ''}"
     f"&queue={queue or ''}"
   )
-  
+
   return send_get_request(url)
 
 
