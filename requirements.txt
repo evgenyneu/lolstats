@@ -4,14 +4,28 @@
 #
 #    pip-compile requirements.in
 #
+astroid==3.0.3
+    # via pylint
 certifi==2024.2.2
     # via requests
 charset-normalizer==3.3.2
     # via requests
+dill==0.3.8
+    # via pylint
 idna==3.6
     # via requests
+isort==5.13.2
+    # via pylint
+mccabe==0.7.0
+    # via pylint
+platformdirs==4.2.0
+    # via pylint
+pylint==3.0.3
+    # via -r requirements.in
 requests==2.31.0
     # via -r requirements.in
+tomlkit==0.12.3
+    # via pylint
 tqdm==4.66.2
     # via -r requirements.in
 urllib3==2.2.1
