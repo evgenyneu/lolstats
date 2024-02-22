@@ -6,7 +6,7 @@
     {
       "label": "Run Python ",
       "type": "shell",
-      "command": "python ${file}",
+      "command": "${workspaceFolder}/.venv/bin/python ${file}",
       "problemMatcher": [],
       "group": {
         "kind": "build",
