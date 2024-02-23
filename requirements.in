@@ -2,3 +2,4 @@ requests
 tqdm
 pylint
 pytest
+pip-tools

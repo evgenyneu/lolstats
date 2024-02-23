@@ -6,10 +6,14 @@
 #
 astroid==3.0.3
     # via pylint
+build==1.0.3
+    # via pip-tools
 certifi==2024.2.2
     # via requests
 charset-normalizer==3.3.2
     # via requests
+click==8.1.7
+    # via pip-tools
 dill==0.3.8
     # via pylint
 idna==3.6
@@ -21,13 +25,21 @@ isort==5.13.2
 mccabe==0.7.0
     # via pylint
 packaging==23.2
-    # via pytest
+    # via
+    #   build
+    #   pytest
+pip-tools==7.4.0
+    # via -r requirements.in
 platformdirs==4.2.0
     # via pylint
 pluggy==1.4.0
     # via pytest
 pylint==3.0.3
     # via -r requirements.in
+pyproject-hooks==1.0.0
+    # via
+    #   build
+    #   pip-tools
 pytest==8.0.1
     # via -r requirements.in
 requests==2.31.0
@@ -38,3 +50,9 @@ tqdm==4.66.2
     # via -r requirements.in
 urllib3==2.2.1
     # via requests
+wheel==0.42.0
+    # via pip-tools
+
+# The following packages are considered to be unsafe in a requirements file:
+# pip
+# setuptools
