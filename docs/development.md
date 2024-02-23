@@ -16,7 +16,7 @@ pylint
 
 ## VS Code extensions
 
-This project uses the following VS Code extensions to maintain consistent Python syntax and formatting:
+This project uses the following VS Code extensions to maintain consistent code style and formatting:
 
 * [Pylint](https://marketplace.visualstudio.com/items?itemName=ms-python.pylint)
 
