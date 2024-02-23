@@ -3,7 +3,7 @@
 ## Run unit tests
 
 ```bash
-pylint
+pytest
 ```
 
 ## Adding new Python libraries
