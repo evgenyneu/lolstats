@@ -8,11 +8,11 @@ pylint
 
 ## Adding new Python libraries
 
-1. Add the library to the `requirements.in` file.
+1. Add the library name to the `requirements.in` file.
 
 1. Run `pip-compile` to update the `requirements.txt` file.
 
-1. Run `pip install -r requirements.txt` to install the new library.
+1. Run `pip install -r requirements.txt` to install the new dependencies.
 
 ## VS Code extensions
 
