@@ -8,7 +8,7 @@ Here's how to install Python and the necessary libraries to run the code in this
 
 Install Python from the Microsoft Store, using the version specified in [.python-version](/.python-version) (or the closest available version).
 
-### MacOS/Linux
+### macOS/Linux
 
 * Install `pyenv` by following [these setup instructions](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation).
 
@@ -25,7 +25,7 @@ Execute the following commands from the root directory of the project.
 * Allow scripts to run: `Set-ExecutionPolicy Unrestricted -Scope Process`
 * Activate the environment: `.venv\Scripts\activate`.
 
-### MacOS/Linux
+### macOS/Linux
 
 * Run `python -m venv .venv` to create a local Python environment.
 * Activate the environment: `source .venv/bin/activate`.

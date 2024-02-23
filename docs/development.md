@@ -2,6 +2,8 @@
 
 ## Run unit tests
 
+From PowerShell (Windows) or Terminal (macOS/Linux), run from the root directory of the project:
+
 ```bash
 pytest
 ```
