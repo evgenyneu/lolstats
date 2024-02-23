@@ -1,16 +1,16 @@
 # League of Legends match data analysis tools
 
-A program written in Python that downloads data for player's recent matches and stores them locally for analysis. Here is an example of a single match data: [docs/match.json](docs/match.json).
+A program written in Python that downloads data for a player's recent matches and stores them locally for analysis. Here is an example of a single match data: [docs/match.json](docs/match.json).
 
 ## Setup
 
-### Download code
+### Download the code
 
 ```bash
 git clone https://github.com/evgenyneu/lolstats.git
 ```
 
-### Setup Python environment
+### Set up Python environment
 
 See [Python setup](docs/python_setup.md).
 
@@ -22,11 +22,12 @@ Run `python load.py` to download data for the most recent matches and store them
 python load.py --name=Faker --tag=t1 --region=americas --max=100 --key=your_api_key
 ```
 
-Where
-  * `--name` and `--tag` are the League of Legends player's name and tag,
-  * `--region` is one of `americas`, `asia`, `europe` or `sea`,
-  * `--max` is the maximum number of recent matches to download,
-  * `--key` is your Riot API key from https://developer.riotgames.com/.
+Where:
+
+  * `--name` and `--tag` are the League of Legends player's name and tag.
+  * `--region` is one of `americas`, `asia`, `europe` or `sea`.
+  * `--max` is the maximum number of recent matches to download.
+  * `--key` is your Riot API key from https://developer.riotgames.com.
 
 Run `python load.py -h` to get the list of all available options.
 
@@ -38,7 +39,7 @@ See [docs/development.md](docs/development.md).
 
 ## Feedback is welcome
 
-If you need help or notice a bug feel free to create an issue ticket. I will be happy to help you.
+If you need help or notice a bug, feel free to create an issue ticket. I will be happy to help. :D
 
 
 ## License
