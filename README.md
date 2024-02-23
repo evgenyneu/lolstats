@@ -1,8 +1,10 @@
 # League of Legends match data analysis tools
 
-This is a collection of tools to analyze/visualize League of Legends match data.
+A program written in Python that loads player's match data and stores it locally for analysis.
 
-## Setup
+##
+
+## Setup Python environment
 
 See [Python setup](docs/python_setup.md).
 

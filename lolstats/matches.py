@@ -46,7 +46,7 @@ def load_matches(directory, total_matches, route, name, tag, api_key, queue=None
     total_loaded = 0
     total_new = 0
 
-    for start in tqdm(range(0, total_matches, batch_size), desc="Loading Matches"):
+    for start in tqdm(range(0, total_matches, batch_size), desc="Loading matches"):
         count = min(batch_size, total_matches - start)
 
         if count <= 0:

@@ -10,7 +10,7 @@ def parse_args():
     """Parse command line arguments."""
 
     parser = argparse.ArgumentParser(
-        description="Load League of Legends match data for the player from Riot API and store it into disk."
+        description="Load player's League of Legends match datafrom Riot API and store it into disk."
     )
 
     parser.add_argument(
@@ -25,6 +25,20 @@ def parse_args():
         "--tag",
         type=str,
         help=("Player tag portion in Name#Tag"),
+        required=True,
+    )
+
+    parser.add_argument(
+        "-r",
+        "--region",
+        type=str,
+        help=(
+            "Region: "
+            " 'americas' for NA, BR, LAN and LAS,"
+            " 'asia' for KR and JP, "
+            " 'europe' for EUNE, EUW, TR and RU,"
+            " 'sea' for OCE, PH2, SG2, TH2, TW2 and VN2."
+        ),
         required=True,
     )
 
@@ -48,19 +62,6 @@ def parse_args():
         type=int,
         help="Game queue type. Example: 420 for Ranked solo queue: https://static.developer.riotgames.com/docs/lol/queues.json",
         default=None,
-    )
-
-    parser.add_argument(
-        "-r",
-        "--region",
-        type=str,
-        help=(
-            "Region: "
-            " 'americas' for NA, BR, LAN and LAS,"
-            " 'asia' for KR and JP, "
-            " 'europe' for EUNE, EUW, TR and RU,"
-            " 'sea' for OCE, PH2, SG2, TH2, TW2 and VN2."
-        ),
     )
 
     return parser.parse_args()
