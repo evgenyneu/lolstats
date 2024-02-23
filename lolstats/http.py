@@ -1,6 +1,8 @@
 """Load data from Riot API"""
 
+import time
 import requests
+from .errors import MyError, HttpError
 
 
 def send_get_request(url, max_retries=8, retry_delay=10):
@@ -35,27 +37,26 @@ def send_get_request(url, max_retries=8, retry_delay=10):
     attempts = 0
 
     while attempts < max_retries:
-        response = requests.get(url)
+        response = requests.get(url, timeout=10)
 
         if response.status_code == 200:
             return response.json()
-        elif response.status_code == 403:
-            raise Exception(
+        elif response.status_code == 401 or response.status_code == 403:
+            raise MyError(
                 "403 - Forbidden. Your API key is incorrect or expired. "
-                "Visit https://developer.riotgames.com/, regenerate your API key and "
-                "assign it to API_KEY variable."
+                "Regenerate a new key from https://developer.riotgames.com/."
             )
         elif response.status_code == 429:
-            print(f"Rate limit exceeded. Retrying in {retry_delay} seconds...")
             time.sleep(retry_delay)
             retry_delay *= 2  # Double the delay for the next retry
             attempts += 1
         else:
-            error_message = f"Request error {response.status_code} - {response.reason}"
-            raise Exception(error_message)
+            raise HttpError(
+                f"{response.status_code} - {response.reason}", response.status_code
+            )
 
     # If the loop exits without returning or raising for status 200, it means max retries were reached.
-    raise Exception("Max retries exceeded.")
+    raise MyError("Max retries exceeded.")
 
 
 def get_account_puuid(routing, name, tag, api_key):
@@ -71,11 +72,13 @@ def get_account_puuid(routing, name, tag, api_key):
       Source: https://developer.riotgames.com/apis#account-v1/
 
     name : str
+        Gamer name part from Riot ID: Name#Tag
 
     tag : str
-      In-game Name#Tag
+        Gamer tag line part from Riot ID: Name#Tag
 
     api_key : str
+        Riot API key.
 
     Returns
     -------
@@ -83,9 +86,18 @@ def get_account_puuid(routing, name, tag, api_key):
       Player's PUUID
     """
 
-    url = f"https://{routing}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/{name}/{tag}?api_key={api_key}"
-    data = send_get_request(url)
-    return data["puuid"]
+    try:
+        url = f"https://{routing}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/{name}/{tag}?api_key={api_key}"
+        data = send_get_request(url)
+        return data["puuid"]
+
+    except HttpError as e:
+        if e.status_code == 404:
+            raise MyError(
+                f"Player {name}#{tag} not found. Check if the name and tag are correct."
+            ) from e
+
+        raise
 
 
 def get_list_of_match_ids(
@@ -97,10 +109,11 @@ def get_list_of_match_ids(
     Parameters
     ----------
     route : str
-      The protion of the HTTP request hostname:
-        * `americas` routing value serves NA, BR, LAN and LAS.
-        * `asia` routing value serves KR and JP. The EUROPE routing value serves EUNE, EUW, TR and RU.
-        * `sea` routing value serves OCE, PH2, SG2, TH2, TW2 and VN2.
+      Match region used in HTTP request hostname:
+        * `americas` for NA, BR, LAN and LAS.
+        * `asia` for KR and JP.
+        * `europe` for EUNE, EUW, TR and RU.
+        * `sea` for OCE, PH2, SG2, TH2, TW2 and VN2.
       Source: https://developer.riotgames.com/apis#match-v5
 
     puuid : str
@@ -119,7 +132,7 @@ def get_list_of_match_ids(
       Matched that finish before this time will be included.
 
     queue: int, optional
-      Queue types (draft, raked etc.). See https://static.developer.riotgames.com/docs/lol/queues.json.
+      Game queue type. See https://static.developer.riotgames.com/docs/lol/queues.json.
       Example: 420 is "5v5 Ranked Solo games".
 
     Returns
