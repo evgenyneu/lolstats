@@ -2,7 +2,7 @@
 
 import time
 import requests
-from .errors import MyError, HttpError
+from lolstats.errors import MyError, HttpError
 
 
 def send_get_request(url, max_retries=8, retry_delay=10):
