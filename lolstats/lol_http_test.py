@@ -145,17 +145,6 @@ def test_get_match(mock_send_get_request):
     )
 
 
-# @patch("lolstats.lol_http.send_get_request", return_value={"data": 1})
-# def test_get_matches(mock_send_get_request):
-#     result = get_matches(route="americas", ids=["a", "b", "c"], api_key="testkey")
-
-#     assert result == [1, 2, 3]
-
-#     mock_send_get_request.assert_called_with(
-#         "https://americas.api.riotgames.com/lol/match/v5/matches/match123?api_key=testkey"
-#     )
-
-
 @patch(
     "lolstats.lol_http.send_get_request",
     side_effect=[{"data": 1}, {"data": 2}, {"data": 3}],
