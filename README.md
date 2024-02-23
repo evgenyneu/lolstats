@@ -1,6 +1,6 @@
 # League of Legends match data analysis tools
 
-A program written in Python that downloads data for player's recent matches and stores it locally for analysis. Here is an example of a single match data: [docs/match.json](docs/match.json).
+A program written in Python that downloads data for player's recent matches and stores them locally for analysis. Here is an example of a single match data: [docs/match.json](docs/match.json).
 
 ## Download this repository
 
