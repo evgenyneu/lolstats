@@ -44,4 +44,4 @@ If you need help or notice a bug feel free to create an issue ticket. I will be 
 
 ## License
 
-The code is released under the [MIT License](LICENSE).
+This code is released under the [MIT License](LICENSE).
