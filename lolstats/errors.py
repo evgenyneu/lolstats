@@ -2,7 +2,7 @@
 
 
 class MyError(Exception):
-    pass
+    """Base class for exceptions in this module."""
 
 
 class HttpError(MyError):

@@ -41,9 +41,14 @@ def send_get_request(url, max_retries=8, retry_delay=10):
 
         if response.status_code == 200:
             return response.json()
-        elif response.status_code == 401 or response.status_code == 403:
+        elif response.status_code == 401:
             raise MyError(
-                "403 - Forbidden. Your API key is incorrect or expired. "
+                "401 Unauthorized. Your API key is missing or incorrect. "
+                "Regenerate a new key from https://developer.riotgames.com/."
+            )
+        elif response.status_code == 403:
+            raise MyError(
+                "403 Forbidden. Your API key has expired. "
                 "Regenerate a new key from https://developer.riotgames.com/."
             )
         elif response.status_code == 429:
@@ -52,7 +57,7 @@ def send_get_request(url, max_retries=8, retry_delay=10):
             attempts += 1
         else:
             raise HttpError(
-                f"{response.status_code} - {response.reason}", response.status_code
+                f"{response.status_code} {response.reason}", response.status_code
             )
 
     # If the loop exits without returning or raising for status 200, it means max retries were reached.

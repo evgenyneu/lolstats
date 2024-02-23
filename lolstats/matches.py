@@ -2,7 +2,7 @@
 
 from tqdm import tqdm
 import os
-from .http import get_account_puuid, get_list_of_match_ids, get_matches
+from .lol_http import get_account_puuid, get_list_of_match_ids, get_matches
 from .disk import unsaved_matches, save_matches, save_player
 
 
