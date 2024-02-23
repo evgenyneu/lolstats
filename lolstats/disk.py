@@ -79,22 +79,6 @@ def save_matches(directory, matches):
         save_match(directory=directory, id=id, match=match)
 
 
-def remove_all_files(directory):
-    """
-    Removes all files in a directory.
-
-    Parameters
-    ----------
-    directory: str
-      Directory where the matches are stored.
-    """
-    files = glob.glob(os.path.join(directory, "*"))
-
-    for f in files:
-        if os.path.isfile(f):
-            os.remove(f)
-
-
 def save_player(name, tag, puuid, directory):
     """
     Save a player's name and tag to a mapping based on their puuid
