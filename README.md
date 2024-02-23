@@ -35,3 +35,13 @@ VSCode extensions:
 
 * [Pylint](https://marketplace.visualstudio.com/items?itemName=ms-python.pylint)
 * [Black](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter)
+
+
+## Feedback is welcome
+
+If you need help or notice a bug feel free to create an issue ticket. I will be happy to help you.
+
+
+## License
+
+Keychain Swift is released under the [MIT License](LICENSE).
