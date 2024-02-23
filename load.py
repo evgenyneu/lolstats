@@ -10,7 +10,7 @@ def parse_args():
     """Parse command line arguments."""
 
     parser = argparse.ArgumentParser(
-        description="Load player's League of Legends match datafrom Riot API and store it into disk."
+        description="Load player's League of Legends match data from Riot API and save it to disk."
     )
 
     parser.add_argument(
