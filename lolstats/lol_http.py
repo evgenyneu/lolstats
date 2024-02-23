@@ -181,6 +181,7 @@ def get_match(route, id, api_key):
     url = (
         f"https://{route}.api.riotgames.com/lol/match/v5/matches/{id}?api_key={api_key}"
     )
+
     return send_get_request(url)
 
 
