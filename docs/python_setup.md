@@ -17,10 +17,11 @@ Install Python from Microsoft Store, version specified in [.python-version](/.py
 
 ## Activate Python environment
 
+Run the following commands from the root directory of the project.
+
 ### Windows
 
-* Open PowerShell.
-* Run `python -m venv .venv` to create a local Python environment.
+* In PowerShell run `python -m venv .venv` to create a local Python environment.
 * Allow scripts to run: `Set-ExecutionPolicy Unrestricted -Scope Process`
 * Activate the environment: `.venv\Scripts\activate`.
 

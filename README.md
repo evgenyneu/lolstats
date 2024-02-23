@@ -12,11 +12,14 @@ Install Git by following the instructions at [https://git-scm.com/downloads](htt
 
 ### Download the code
 
-From Git Bash on Windows (installed with Git) or Terminal on macOS/Linux:
+From PowerShell on Windows or Terminal on macOS/Linux:
 
 ```bash
 git clone https://github.com/evgenyneu/lolstats.git
 ```
+
+Change directory to the root of the project: `cd lolstats`.
+
 
 ### Set up Python environment
 
