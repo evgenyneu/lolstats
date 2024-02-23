@@ -16,7 +16,7 @@ See [Python setup](docs/python_setup.md).
 
 ## Usage
 
-Run `python load.py` to download data for the most recent matches and store it locally. For example:
+Run `python load.py` to download data for the most recent matches and store them locally. For example:
 
 ```bash
 python load.py --name=Faker --tag=t1 --region=americas --max=100 --key=your_api_key
