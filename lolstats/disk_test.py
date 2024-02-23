@@ -1,5 +1,6 @@
 import os
 import json
+from tempfile import TemporaryDirectory
 
 from .disk import (
     make_dir_if_not_exists,
@@ -8,8 +9,6 @@ from .disk import (
     save_matches,
     save_player,
 )
-
-from tempfile import TemporaryDirectory
 
 
 def test_make_dir_if_not_exists():
