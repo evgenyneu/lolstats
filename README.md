@@ -44,4 +44,4 @@ If you need help or notice a bug feel free to create an issue ticket. I will be 
 
 ## License
 
-Keychain Swift is released under the [MIT License](LICENSE).
+The code is released under the [MIT License](LICENSE).
