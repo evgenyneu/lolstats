@@ -2,13 +2,15 @@
 
 A program written in Python that downloads data for player's recent matches and stores them locally for analysis. Here is an example of a single match data: [docs/match.json](docs/match.json).
 
-## Download this repository
+## Setup
+
+### Download code
 
 ```bash
 git clone https://github.com/evgenyneu/lolstats.git
 ```
 
-## Setup Python environment
+### Setup Python environment
 
 See [Python setup](docs/python_setup.md).
 
