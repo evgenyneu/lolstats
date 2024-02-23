@@ -6,7 +6,7 @@ Here's how to install Python and the necessary libraries to run the code in this
 
 ### Windows
 
-Install Python from Microsoft Store, version closer to [.python-version](/.python-version).
+Install Python from Microsoft Store, version specified in [.python-version](/.python-version) (or close to it).
 
 ### MacOS/Linux
 
