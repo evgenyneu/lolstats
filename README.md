@@ -33,10 +33,7 @@ Run `python load.py -h` to get the list of all available options.
 
 ## Development
 
-VSCode extensions:
-
-* [Pylint](https://marketplace.visualstudio.com/items?itemName=ms-python.pylint)
-* [Black](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter)
+See [docs/development.md](docs/development.md).
 
 
 ## Feedback is welcome
