@@ -1,7 +1,9 @@
 import pytest
+import sys
+from pathlib import Path
 from unittest.mock import patch, Mock, call
-from .lol_http import send_get_request
-from .errors import MyError, HttpError
+from lolstats.lol_http import send_get_request, get_account_puuid
+from lolstats.errors import MyError, HttpError
 
 
 @patch(
@@ -59,3 +61,34 @@ def test_send_get_request_max_retries_exceeded(mock_get, mock_sleep):
     # Verify time.sleep was called correctly with doubling delay
     expected_calls = [call(1), call(2), call(4)]
     assert mock_sleep.call_args_list == expected_calls
+
+
+@patch("lolstats.lol_http.send_get_request", return_value={"puuid": "test-puuid"})
+def test_get_account_puuid_success(mock_send_get_request):
+    puuid = get_account_puuid("americas", "PlayerName", "PlayerTag", "testkey")
+
+    assert puuid == "test-puuid"
+
+    mock_send_get_request.assert_called_with(
+        "https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/PlayerName/PlayerTag?api_key=testkey"
+    )
+
+
+@patch("lolstats.lol_http.send_get_request", side_effect=HttpError("Not Found", 404))
+def test_get_account_puuid_not_found(mock_send_get_request):
+    with pytest.raises(MyError) as excinfo:
+        get_account_puuid("americas", "UnknownPlayer", "UnknownTag", "api_key")
+
+    assert "Player UnknownPlayer#UnknownTag not found" in str(excinfo.value)
+
+
+@patch(
+    "lolstats.lol_http.send_get_request",
+    side_effect=HttpError("Internal Server Error", 500),
+)
+def test_get_account_puuid_http_error(mock_send_get_request):
+    with pytest.raises(HttpError) as excinfo:
+        get_account_puuid("americas", "PlayerName", "PlayerTag", "api_key")
+
+    assert "Internal Server Error" == str(excinfo.value)
+    assert excinfo.value.status_code == 500
