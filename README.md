@@ -18,7 +18,11 @@ From PowerShell on Windows or Terminal on macOS/Linux:
 git clone https://github.com/evgenyneu/lolstats.git
 ```
 
-Change directory to the root of the project: `cd lolstats`.
+Change directory to the root of the project:
+
+```bash
+cd lolstats
+```
 
 
 ### Set up Python environment
