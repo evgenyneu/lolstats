@@ -165,7 +165,7 @@ def get_match(route, id, api_key):
     Parameters
     ----------
     route : str
-      See get_list_of_matche_ids.
+      See get_list_of_match_ids.
 
     id : str
       Match id.
@@ -191,7 +191,7 @@ def get_matches(route, ids, api_key):
     Parameters
     ----------
     route : str
-      See get_list_of_matche_ids.
+      See get_list_of_match_ids.
 
     ids : list
       List of match IDs.
