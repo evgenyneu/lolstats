@@ -1,6 +1,6 @@
 # League of Legends match data downloader
 
-A program written in Python that downloads data for a player's recent matches and stores them locally for analysis. Here is an example of a single match data: [docs/match.json](docs/match.json).
+A program written in Python that uses [League of Legends API](https://developer.riotgames.com/apis) to download data for a player's recent matches and stores them locally for analysis in JSON format. Here is an example of a single match file: [docs/match.json](docs/match.json).
 
 ## Setup
 
